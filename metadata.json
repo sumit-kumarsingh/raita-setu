@@ -1,0 +1,6 @@
+{
+  "name": "KrishiSetu Karnataka",
+  "description": "Farmer-first mobile platform for Karnataka supporting crop planning, soil health, crop care, trusted services, mandi sales, auctions, and export connections.",
+  "requestFramePermissions": ["geolocation", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>KrishiSetu - Samriddh Annadata, Samriddh Bharat</title>
+    <meta name="description" content="KrishiSetu - Digital Agriculture Stack, Farmer Portal, Orders, and Mandi Network." />
+    <meta property="og:title" content="KrishiSetu - Samriddh Annadata, Samriddh Bharat" />
+    <meta property="og:description" content="KrishiSetu - Digital Agriculture Stack, Farmer Portal, Orders, and Mandi Network." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#047857" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+      // Early suppression of third-party extension messaging errors (e.g. chrome: call method)
+      window.addEventListener('error', function(e) {
+        if (e && (
+          (e.message && (e.message.indexOf('chrome: call method') !== -1 || e.message.indexOf('ff-content.js') !== -1)) ||
+          (e.filename && (e.filename.indexOf('chrome-extension://') !== -1 || e.filename.indexOf('moz-extension://') !== -1))
+        )) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+        }
+      }, true);
+      window.addEventListener('unhandledrejection', function(e) {
+        var msg = e && e.reason ? (e.reason.message || String(e.reason)) : '';
+        if (msg && (msg.indexOf('chrome: call method') !== -1 || msg.indexOf('chrome-extension://') !== -1)) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+        }
+      }, true);
+    </script>
+  </head>
+  <body class="bg-white text-stone-900 antialiased selection:bg-emerald-100 selection:text-emerald-950 font-sans overflow-x-hidden">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').catch(function(err) {
+            console.log('ServiceWorker registration optional:', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
+
